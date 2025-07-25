@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Editor de Texturas 3D</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/frame.css">
+  <link rel="stylesheet" href="./css/colores.css">
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      font-family: sans-serif;
+    }
+    #ui {
+      width: 30vw;
+      padding: 1rem;
+      background: #f0f0f0;
+      max-height: 100vh;
+      overflow-y: auto;
+    }
+   
+    .face-control {
+      margin-bottom: 1rem;
+    }
+    
+    .containerMODELO {
+  position: relative;
+  width: 70vw;
+  height: 100vh;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+}
+
+#fullscreenBtn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 999;
+  padding: 8px 12px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+  <div class="flex-colum padding1 gap1" id="ui">
+    <div class="flex-spacebetween flex-a">
+        <h1 class="ftsz-2">Valla Móvil Tradicional</h1>
+        <a href="index.html" class="clr-1">👈 Regresar</a>
+    </div>
+    <!--TEXTURAS-->
+    <div class="flex-colum gap1 border1px brdclr-g4 padding1 border05">
+      <h2 class="ftsz-1_5">Editor de Texturas</h2>
+      <form id="textureForm">
+      <!-- BLOQUE PLANTILLA OCULTO -->
+      <div class="face-control" >
+        <label>Cara:</label>
+        <select class="type-select">
+          <option value="color">Color</option>
+          <option value="image">Imagen</option>
+        </select>
+        <input type="color" class="color-input" />
+        <input type="file" class="image-input" accept="image/*" style="display:none" />
+      </div>
+      <button class="bg-5 clr-b padding1 ftsz0_9 border05" type="submit">Confirmar Cambios</button>
+      </form>
+    </div>
+    <!-- BLOQUE DE BOTONES DE CÁMARA -->
+    <div id="cameraButtons" class="flex-colum gap1 border1px brdclr-g4 padding1 border05">
+      <h3 class="ftsz-1_5">Vista de Cámara</h3>
+      <div class="flex-c-resp gap1">
+        <button class="bg-g4 clr-b padding1 ftsz0_9 border05" type="button" onclick="goToPosition('camara1')">Copiloto</button>
+        <button class="bg-g4 clr-b padding1 ftsz0_9 border05" type="button" onclick="goToPosition('camara2')">Piloto</button>
+        <button class="bg-g4 clr-b padding1 ftsz0_9 border05" type="button" onclick="goToPosition('camara3')">Camara 3</button>
+      </div>
+    </div>
+    <!-- LAYOUT DE LA VALLA MOVIL-->
+      <div class="flex-row gap1">
+        <a href="./Templates/vallamovil_assets.ai" download class="bg-5 clr-b padding1 ftsz0_9 border05 ">Descargar Template</a>
+        <button class="bg-1 clr-b padding1 ftsz0_9 border05" id="saveImageBtn">Guardar Imagen</button>
+      </div>
+
+
+  </div>
+  <div class="containerMODELO">
+    <div id="container">
+      
+    </div>
+  <button id="fullscreenBtn">Pantalla Completa</button>
+  </div>
+  
+  <!-- Three.js clásico con GLTFLoader global -->
+   
+  <script src="https://cdn.jsdelivr.net/npm/three@0.125.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.125.2/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.125.2/examples/js/loaders/GLTFLoader.js"></script>
+
+   <!-- Librería GSAP para animar la cámara -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>
