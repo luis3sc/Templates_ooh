@@ -56,7 +56,7 @@ brightnessContrastPass.uniforms['contrast'].value = 0.3;   // entre -1 y 1
 saturationPass = new THREE.ShaderPass({
   uniforms: {
     tDiffuse: { value: null },
-    amount: { value: 1.5 } // 1 = normal, 0 = gris, mayor = más saturado
+    amount: { value: 1 } // 1 = normal, 0 = gris, mayor = más saturado
   },
   vertexShader: `
     varying vec2 vUv;
