@@ -1,0 +1,18 @@
+  #container {
+    width: 70vw;
+    height: 100vh;
+  }
+  #ui {
+    width: 30vw;
+    padding: 1rem;
+    background: #f0f0f0;
+    overflow-y: auto;
+  }
+  .face-control {
+    margin-bottom: 1rem;
+  }
+/**/
+.icono_div{
+  width: 60px;
+  height: 60px;
+}
